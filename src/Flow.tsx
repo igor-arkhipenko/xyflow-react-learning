@@ -8,6 +8,8 @@ import {
   useNodesState,
   useEdgesState,
   addEdge,
+  BackgroundVariant,
+  Panel
 } from '@xyflow/react';
  
 import '@xyflow/react/dist/style.css';
@@ -18,7 +20,7 @@ const initialNodes = [
 ];
 const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
 
-function App() {
+export const Flow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
  
@@ -38,13 +40,12 @@ function App() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
       >
+        <Panel position="top-right">TODO: settings panel</Panel>
         <Controls />
         <MiniMap />
-        <Background variant='dots' gap={12} size={1} />
+        <Background variant={BackgroundVariant.Dots} />
       </ReactFlow>
     </div>
     </>
   )
 }
-
-export default App
